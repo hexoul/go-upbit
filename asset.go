@@ -18,7 +18,6 @@ func (s *Client) Accounts() (balances []*types.Balance, err error) {
 	if err != nil {
 		return nil, err
 	}
-
 	err = json.Unmarshal(body, &balances)
 	return
 }

@@ -36,7 +36,7 @@ func main() {
 
 | Type           | Endpoint                               | Done |
 |----------------|----------------------------------------|------|
-| Asset | /v1/accounts | - |
+| Asset | /v1/accounts | ✔ |
 
 ## Reference
 

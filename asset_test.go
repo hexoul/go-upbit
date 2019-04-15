@@ -9,6 +9,8 @@ func TestAccounts(t *testing.T) {
 	if ret, err := GetInstance().Accounts(); err != nil {
 		t.Fatal(err)
 	} else {
-		t.Logf("%v", ret)
+		for _, v := range ret {
+			t.Log(v.Currency, v.Balance, v.Locked)
+		}
 	}
 }
