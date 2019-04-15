@@ -20,3 +20,23 @@ type Balance struct {
 	AvgKrwBuyPrice string `json:"avg_krw_buy_price"`
 	Modified       bool   `json:"modified"`
 }
+
+// Order structure
+type Order struct {
+	UUID            string `json:"uuid"`
+	Side            string `json:"side"`
+	OrdType         string `json:"ord_type"`
+	Price           string `json:"price"`
+	AvgPrice        string `json:"avg_price"`
+	State           string `json:"state"`
+	Market          string `json:"market"`
+	CreatedAt       string `json:"created_at"`
+	Volume          string `json:"volume"`
+	RemainingVolume string `json:"remainingVolume"`
+	ReservedFee     string `json:"reserved_fee"`
+	RemainingFee    string `json:"remaining_fee"`
+	PaidFee         string `json:"paid_fee"`
+	Locked          string `json:"locked"`
+	ExecutedVolume  string `json:"executed_volume"`
+	TradeCount      string `json:"trade_count"`
+}

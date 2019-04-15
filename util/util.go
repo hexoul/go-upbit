@@ -2,14 +2,30 @@
 package util
 
 import (
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"time"
+
+	"github.com/hexoul/go-upbit/types"
 )
 
 // TimeStamp makes UNIX timestamp
 func TimeStamp() int64 {
 	return time.Now().UnixNano() / int64(time.Millisecond)
+}
+
+// ParseOptions returns parsed param list
+func ParseOptions(options *types.Options) (params map[string]string) {
+	if options == nil {
+		return
+	}
+	bOption, err := json.Marshal(options)
+	if err != nil {
+		return
+	}
+	json.Unmarshal(bOption, &params)
+	return
 }
 
 // DoReq HTTP client

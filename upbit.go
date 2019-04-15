@@ -18,7 +18,9 @@ import (
 
 // Interface for APIs
 type Interface interface {
-	// Accounts(options *types.Options) (*types.CryptoInfoMap, error)
+	Accounts() ([]*types.Balance, error)
+
+	GetOrders() ([]*types.Order, error)
 }
 
 // Client for CoinMarketCap API
@@ -79,10 +81,17 @@ func GetInstanceWithKey(accessKey, secretKey string) *Client {
 	return instance
 }
 
-func (s *Client) getResponse(url, method, sign string) ([]byte, error) {
+func (s *Client) getResponse(url, method, sign string, query map[string]string) ([]byte, error) {
 	req, err := http.NewRequest(method, url, nil)
 	if err != nil {
 		return nil, err
+	}
+	if query != nil {
+		q := req.URL.Query()
+		for k, v := range query {
+			q.Add(k, v)
+		}
+		req.URL.RawQuery = q.Encode()
 	}
 	req.Header.Add("Authorization", "Bearer "+sign)
 	body, err := util.DoReq(req)
