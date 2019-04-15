@@ -98,7 +98,6 @@ func (s *Client) getResponse(url, method, sign string, query map[string]string) 
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(string(body))
 	resp := new(types.Response)
 	if err := json.Unmarshal(body, &resp); err == nil && resp.Err != nil {
 		return nil, fmt.Errorf("[%s] %s", resp.Err.Name, resp.Err.Message)
