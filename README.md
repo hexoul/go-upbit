@@ -29,14 +29,24 @@ func init() {
 }
 
 func main() {
+    if ret, err := upbit.GetInstance().Accounts(); err == nil {
+		for _, v := range ret {
+			fmt.Println(v.Currency, v.Balance, v.Locked)
+		}
+	}
 }
 ```
 
 ## Features
 
-| Type           | Endpoint                               | Done |
-|----------------|----------------------------------------|------|
-| Asset | /v1/accounts | ✔ |
+| Type           | Method | Endpoint                               | Done |
+|----------------|--------|----------------------------------------|------|
+| Asset | GET | /v1/accounts | ✔ |
+| Order | GET | /v1/orders/chance | - |
+| Order | GET | /v1/orders | - |
+| Order | GET | /v1/order | - |
+| Order | POST | /v1/order | - |
+| Order | DELETE | /v1/order | - |
 
 ## Reference
 

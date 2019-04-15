@@ -14,7 +14,7 @@ func (s *Client) Accounts() (balances []*types.Balance, err error) {
 		return nil, err
 	}
 
-	body, err := s.getResponse(url, sign)
+	body, err := s.getResponse(url, "GET", sign)
 	if err != nil {
 		return nil, err
 	}

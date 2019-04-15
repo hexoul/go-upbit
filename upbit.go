@@ -79,8 +79,8 @@ func GetInstanceWithKey(accessKey, secretKey string) *Client {
 	return instance
 }
 
-func (s *Client) getResponse(url, sign string) ([]byte, error) {
-	req, err := http.NewRequest("GET", url, nil)
+func (s *Client) getResponse(url, method, sign string) ([]byte, error) {
+	req, err := http.NewRequest(method, url, nil)
 	if err != nil {
 		return nil, err
 	}
