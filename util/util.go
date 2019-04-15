@@ -7,6 +7,11 @@ import (
 	"time"
 )
 
+// TimeStamp makes UNIX timestamp
+func TimeStamp() int64 {
+	return time.Now().UnixNano() / int64(time.Millisecond)
+}
+
 // DoReq HTTP client
 func DoReq(req *http.Request) (body []byte, err error) {
 	requestTimeout := time.Duration(5 * time.Second)

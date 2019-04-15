@@ -25,7 +25,7 @@ import (
 )
 
 func init() {
-    upbit.GetInstanceWithKey("YOUR_API_KEY")
+    upbit.GetInstanceWithKey("YOUR_ACCESS_KEY", "YOUR_SECRET_KEY")
 }
 
 func main() {
@@ -37,3 +37,7 @@ func main() {
 | Type           | Endpoint                               | Done |
 |----------------|----------------------------------------|------|
 | Asset | /v1/accounts | - |
+
+## Reference
+
+[Upbit API](https://docs.upbit.com/v1.0.2/reference)
