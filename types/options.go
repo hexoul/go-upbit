@@ -17,10 +17,22 @@ type stateOptions struct {
 // StateOptions for interval
 var StateOptions stateOptions
 
+type orderOptions struct {
+	Asec string
+	Desc string
+}
+
+// OrderOptions for interval
+var OrderOptions orderOptions
+
 func init() {
 	StateOptions = stateOptions{
 		Wait:   "wait",
 		Done:   "done",
 		Cancel: "cancel",
+	}
+	OrderOptions = orderOptions{
+		Asec: "asec",
+		Desc: "desc",
 	}
 }
